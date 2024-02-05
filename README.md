@@ -68,6 +68,22 @@ LIMIT 1
 ```
 ![Screenshot 2024-02-05 190001](https://github.com/Archana1819/Archana1819/assets/159028840/5f309f97-5953-428e-ad56-1086905397ff)
   
-9. 
+9. Find out percent_of_baseline on 16 April 2020. 
+```SQL
+SELECT a.date, a.percent_of_baseline
+FROM `bigquery-public-data.covid19_ecdc_eu.covid_19_geographic_distribution_worldwide` c
+Left join `bigquery-public-data.covid19_geotab_mobility_impact_eu.airport_traffic` a
+on c.date=a.date
+where c.date = "2020-04-16"
+```
+![Screenshot 2024-02-05 191933](https://github.com/Archana1819/Archana1819/assets/159028840/875df050-9574-4097-a9cd-e5922feb9318)
 
-
+10. Find out the percent of baseline of Australia on 20 March 2020. 
+```SQL
+SELECT a.country_name, a.percent_of_baseline,a.date
+FROM `bigquery-public-data.covid19_ecdc_eu.covid_19_geographic_distribution_worldwide` c
+Left join `bigquery-public-data.covid19_geotab_mobility_impact_eu.airport_traffic` a
+on c.countries_and_territories =a.country_name
+where c.countries_and_territories = "Australia" and a.date = "2020-03-20"
+```
+![Screenshot 2024-02-05 192535](https://github.com/Archana1819/Archana1819/assets/159028840/6536dc88-63a8-424a-a458-cf9e529aded6)
